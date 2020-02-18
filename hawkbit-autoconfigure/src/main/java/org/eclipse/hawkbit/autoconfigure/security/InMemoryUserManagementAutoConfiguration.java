@@ -83,7 +83,7 @@ public class InMemoryUserManagementAutoConfiguration extends GlobalAuthenticatio
             }
 
             final UserPrincipal userPrincipal = new UserPrincipal(user.getUsername(), user.getPassword(),
-                    user.getFirstname(), user.getLastname(), user.getUsername(), user.getEmail(), DEFAULT_TENANT,
+                    user.getFirstname(), user.getLastname(), user.getUsername(), user.getEmail(), user.getTenant(),
                     authorityList);
             userPrincipals.add(userPrincipal);
         }
@@ -132,7 +132,7 @@ public class InMemoryUserManagementAutoConfiguration extends GlobalAuthenticatio
     @Bean
     @ConditionalOnMissingBean
     MultitenancyIndicator multiTenancyIndicator() {
-        return () -> false;
+        return () -> true;
     }
 
     private static class TenantDaoAuthenticationProvider extends DaoAuthenticationProvider {

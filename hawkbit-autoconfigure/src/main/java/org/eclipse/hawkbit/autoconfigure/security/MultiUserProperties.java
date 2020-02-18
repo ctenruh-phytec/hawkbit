@@ -31,6 +31,7 @@ public class MultiUserProperties {
         private String firstname;
         private String lastname;
         private String email;
+	private String tenant;
         private List<String> permissions = new ArrayList<>();
 
         public String getUsername() {
@@ -71,6 +72,14 @@ public class MultiUserProperties {
 
         public void setEmail(String email) {
             this.email = email;
+        }
+
+        public String getTenant() {
+            return tenant;
+        }
+	
+	public void setTenant(String tenant) {
+            this.tenant = tenant;
         }
 
         public List<String> getPermissions() {
